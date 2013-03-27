@@ -1,9 +1,9 @@
-Shoes.app :title => "Thy Calculator", :width => 200, :height => 210, :resizable => false :color => blue do
+Shoes.app :title => "Thy Calculator", :width => 200, :height => 210, :resizable => false  do background "#EBFFFF"
   stack :margin => 20 do
     @output = edit_line :width => 150, :margin_bottom => 10
-    
+
     flow do
-      %w(7 8 9 / 4 5 6 * 1 2 3 - 0 +).each do |op|      
+      %w(7 8 9 / 4 5 6 * 1 2 3 - 0 +).each do |op|     
         button op do         
           append op
         end
@@ -17,7 +17,6 @@ Shoes.app :title => "Thy Calculator", :width => 200, :height => 210, :resizable 
         clear_all
       end
     end
-    
   end
   
   # Stick a string on the end of our input
@@ -41,5 +40,4 @@ Shoes.app :title => "Thy Calculator", :width => 200, :height => 210, :resizable 
     @input = ""
     @output.text = @input
   end
-  
 end
