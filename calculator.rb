@@ -18,16 +18,16 @@ Shoes.app :title => "Thy Calculator", :width => 200, :height => 240, :resizable 
       end
 
       button "^2" do
-        square
-        end
+        append " * #{@input.to_i}"
+      end
 
       button "sqrt", :width => 72 do
-        square_root
-        end
+        append " = #{Math.sqrt(@input.to_i)}"
+      end
 
-        button "^" do
-          power
-        end
+      button "^" do
+        append "**"
+      end
     end
   end
   # Stick a string on the end of our input
@@ -51,16 +51,16 @@ Shoes.app :title => "Thy Calculator", :width => 200, :height => 240, :resizable 
     @input = ""
     @output.text = @input
 
-  def square
+    def square
       @input = @input.to_i * @input.to_i
-  end
+    end
 
-  def square_root
-    @input = Math.sqrt(@input.to_i)
-  end
+    def square_root
+      @input = Math.sqrt(@input.to_i)
+    end
 
-  def power
-    @input = @input**@input
-  end
+    def power
+      @input = @input**@input
+    end
   end
 end
