@@ -1,6 +1,6 @@
-Shoes.app :title => "Thy Calculator", :width => 200, :height => 240, :resizable => false  do background "#EBFFFF"
+Shoes.app :title => "Thy Calculator", :width => 200, :height => 260, :resizable => false  do background "#EBFFFF"
   stack :margin => 20 do
-    @output = edit_line :width => 150, :margin_bottom => 10
+    @output = edit_line :width => 150, :height => 55, :margin_bottom => 10
 
     flow do
       %w(7 8 9 / 4 5 6 * 1 2 3 - 0 +).each do |op|     
@@ -9,24 +9,24 @@ Shoes.app :title => "Thy Calculator", :width => 200, :height => 240, :resizable 
         end
       end
       
-      button "=" do
-        eval_expression
-      end
-
       button "C" do
         clear_all
       end
 
-      button "^2" do
-        append " * #{@input.to_i}"
+      button "=" do
+        eval_expression
       end
-
+      
+      button "^" do
+        append "**"
+      end
+      
       button "sqrt", :width => 72 do
         append " = #{Math.sqrt(@input.to_i)}"
       end
 
-      button "^" do
-        append "**"
+      button "^2" do
+        append " * #{@input.to_i}"
       end
     end
   end
